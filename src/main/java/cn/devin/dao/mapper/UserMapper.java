@@ -1,8 +1,13 @@
-package com.devin.dao.mapper;
+package cn.devin.dao.mapper;
 
-import com.devin.dao.model.User;
+import cn.devin.dao.entity.User;
+
+import java.util.List;
 
 public interface UserMapper {
+
+    List<User> selectAll();
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(User record);

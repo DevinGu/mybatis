@@ -1,4 +1,4 @@
-package com.devin.dao.model;
+package cn.devin.dao.entity;
 
 public class User {
     private Integer id;
