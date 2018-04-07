@@ -26,11 +26,32 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectByPrimaryKey(id);
     }
 
-    public void deleteById(Integer id) {
-        userMapper.deleteByPrimaryKey(id);
+    public boolean deleteById(Integer id) {
+        int result = userMapper.deleteByPrimaryKey(id);
+        if (result < 1) {
+            return false;
+        }
+        return true;
     }
 
     public List<User> queryAll() {
         return userMapper.selectAll();
+    }
+
+    public User login(String username, String password) {
+        if (username == null) {
+            throw new RuntimeException("用户名为空");
+        }
+        if (password == null) {
+            throw new RuntimeException("密码为空");
+        }
+        User loginUser = userMapper.selectByUsername(username);
+        if (loginUser == null) {
+            throw new RuntimeException("不存在用户");
+        } else if (!password.equals(loginUser.getPassword())) {
+            throw new RuntimeException("密码错误");
+        } else {
+            return loginUser;
+        }
     }
 }

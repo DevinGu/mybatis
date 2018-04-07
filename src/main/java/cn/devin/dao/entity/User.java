@@ -1,5 +1,8 @@
 package cn.devin.dao.entity;
 
+/**
+ * @author devin
+ */
 public class User {
     private Integer id;
 

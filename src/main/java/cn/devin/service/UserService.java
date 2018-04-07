@@ -13,7 +13,9 @@ public interface UserService {
 
     User queryById(Integer id);
 
-    void deleteById(Integer id);
+    boolean deleteById(Integer id);
 
     List<User> queryAll();
+
+    User login(String username,String password);
 }

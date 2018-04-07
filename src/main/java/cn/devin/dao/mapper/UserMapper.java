@@ -1,10 +1,13 @@
 package cn.devin.dao.mapper;
 
 import cn.devin.dao.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface UserMapper {
+
+    User selectByUsername(@Param("username") String username);
 
     List<User> selectAll();
 

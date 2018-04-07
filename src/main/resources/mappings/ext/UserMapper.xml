@@ -6,4 +6,11 @@
       union_user
   </select>
 
+  <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT * FROM
+      union_user
+    WHERE
+      name = #{username}
+  </select>
+
 </mapper>
